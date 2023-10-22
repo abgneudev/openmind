@@ -42,6 +42,7 @@ public class ProfessorLoginJPanel extends javax.swing.JPanel {
         profbtnBack = new javax.swing.JButton();
         profPassword = new javax.swing.JPasswordField();
 
+        setBackground(new java.awt.Color(0, 102, 102));
         setPreferredSize(new java.awt.Dimension(969, 407));
 
         ProfessorLoginJPanel.setBackground(new java.awt.Color(0, 102, 102));
@@ -70,7 +71,7 @@ public class ProfessorLoginJPanel extends javax.swing.JPanel {
         });
 
         profbtnBack.setBackground(new java.awt.Color(255, 102, 51));
-        profbtnBack.setForeground(new java.awt.Color(0, 0, 102));
+        profbtnBack.setForeground(new java.awt.Color(255, 255, 255));
         profbtnBack.setText("Back");
         profbtnBack.setBorder(null);
         profbtnBack.setBorderPainted(false);
@@ -84,35 +85,34 @@ public class ProfessorLoginJPanel extends javax.swing.JPanel {
         ProfessorLoginJPanel.setLayout(ProfessorLoginJPanelLayout);
         ProfessorLoginJPanelLayout.setHorizontalGroup(
             ProfessorLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProfessorLoginJPanelLayout.createSequentialGroup()
-                .addContainerGap(338, Short.MAX_VALUE)
-                .addGroup(ProfessorLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(HelloProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(ProfessorLoginJPanelLayout.createSequentialGroup()
+            .addGroup(ProfessorLoginJPanelLayout.createSequentialGroup()
+                .addGap(318, 318, 318)
+                .addGroup(ProfessorLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(HelloProfessor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProfessorLoginJPanelLayout.createSequentialGroup()
                         .addGroup(ProfessorLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(proflblUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(proflblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(ProfessorLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(proftxtUsername)
-                            .addComponent(profPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(361, Short.MAX_VALUE))
-            .addGroup(ProfessorLoginJPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(ProfessorLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(profbtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(userbtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(profPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(ProfessorLoginJPanelLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(userbtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ProfessorLoginJPanelLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(profbtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(413, Short.MAX_VALUE))
         );
-
-        ProfessorLoginJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {profPassword, profbtnBack});
-
         ProfessorLoginJPanelLayout.setVerticalGroup(
             ProfessorLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ProfessorLoginJPanelLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProfessorLoginJPanelLayout.createSequentialGroup()
+                .addContainerGap(99, Short.MAX_VALUE)
                 .addComponent(HelloProfessor)
-                .addGap(44, 44, 44)
+                .addGap(33, 33, 33)
                 .addGroup(ProfessorLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(proflblUsername)
                     .addComponent(proftxtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -120,11 +120,11 @@ public class ProfessorLoginJPanel extends javax.swing.JPanel {
                 .addGroup(ProfessorLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(proflblPassword)
                     .addComponent(profPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addGap(31, 31, 31)
                 .addComponent(userbtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(18, 18, 18)
                 .addComponent(profbtnBack)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addGap(75, 75, 75))
         );
 
         ProfessorLoginJPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {profPassword, profbtnBack});
@@ -133,11 +133,13 @@ public class ProfessorLoginJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ProfessorLoginJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(ProfessorLoginJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ProfessorLoginJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(ProfessorLoginJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(57, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

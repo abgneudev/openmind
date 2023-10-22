@@ -14,6 +14,7 @@ import ui.MainJFrame;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import AdminWorkArea.AdminLandingJPanel;
 
 
 
@@ -52,6 +53,7 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
         adminbtnBack = new javax.swing.JButton();
         adminPassword = new javax.swing.JPasswordField();
 
+        setBackground(new java.awt.Color(0, 102, 102));
         setPreferredSize(new java.awt.Dimension(969, 407));
 
         AdminLogin.setBackground(new java.awt.Color(0, 102, 102));
@@ -72,6 +74,8 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
 
         adminbtnLogin.setForeground(new java.awt.Color(0, 102, 102));
         adminbtnLogin.setText("Login");
+        adminbtnLogin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        adminbtnLogin.setBorderPainted(false);
         adminbtnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adminbtnLoginActionPerformed(evt);
@@ -79,9 +83,9 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
         });
 
         adminbtnBack.setBackground(new java.awt.Color(255, 102, 51));
-        adminbtnBack.setForeground(new java.awt.Color(0, 0, 102));
+        adminbtnBack.setForeground(new java.awt.Color(255, 255, 255));
         adminbtnBack.setText("Back");
-        adminbtnBack.setBorder(null);
+        adminbtnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         adminbtnBack.setBorderPainted(false);
         adminbtnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,7 +98,7 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
         AdminLoginLayout.setHorizontalGroup(
             AdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AdminLoginLayout.createSequentialGroup()
-                .addContainerGap(396, Short.MAX_VALUE)
+                .addContainerGap(407, Short.MAX_VALUE)
                 .addGroup(AdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AdminLoginLayout.createSequentialGroup()
                         .addGroup(AdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -104,26 +108,26 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
                         .addGroup(AdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(admintxtUsername)
                             .addComponent(adminPassword)))
-                    .addComponent(HelloAdmin))
-                .addContainerGap(411, Short.MAX_VALUE))
-            .addGroup(AdminLoginLayout.createSequentialGroup()
-                .addGap(430, 430, 430)
-                .addComponent(adminbtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AdminLoginLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(adminbtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(431, 431, 431))
+                    .addGroup(AdminLoginLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(adminbtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AdminLoginLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(HelloAdmin))
+                    .addGroup(AdminLoginLayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(adminbtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(408, Short.MAX_VALUE))
         );
 
-        AdminLoginLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {adminPassword, adminbtnBack, adminbtnLogin});
+        AdminLoginLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {adminPassword, adminbtnLogin});
 
         AdminLoginLayout.setVerticalGroup(
             AdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AdminLoginLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(171, 171, 171)
                 .addComponent(HelloAdmin)
-                .addGap(43, 43, 43)
+                .addGap(34, 34, 34)
                 .addGroup(AdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(adminlblUsername)
                     .addComponent(admintxtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -131,11 +135,11 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
                 .addGroup(AdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(adminlblPassword)
                     .addComponent(adminPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
+                .addGap(34, 34, 34)
                 .addComponent(adminbtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(adminbtnBack)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addComponent(adminbtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         AdminLoginLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {adminPassword, adminbtnBack});
@@ -144,7 +148,7 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1042, Short.MAX_VALUE)
+            .addGap(0, 1061, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(AdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 1036, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -152,50 +156,51 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 434, Short.MAX_VALUE)
+            .addGap(0, 414, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(AdminLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)))
+                .addComponent(AdminLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void adminbtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminbtnLoginActionPerformed
         // TODO add your handling code here:
         
+         AdminLandingJPanel adminlanding = new AdminLandingJPanel(mainframe);
+         mainframe.setRightComponent(adminlanding);
         
-        try{
-            
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = (Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useSSL=false","root","root@1234");
-            String username = admintxtUsername.getText();
-            String password = adminPassword.getText();
-            
-            Statement stm = con.createStatement();
-            String sql = "select * from login where username='"+username+"' and password='"+password+"'";
-            ResultSet rs = stm.executeQuery(sql);
-            
-            if(rs.next())
-            {
-                
-                AdminJPanel adminpanel = new AdminJPanel(mainframe);
-                mainframe.setRightComponent(adminpanel);
-            }
-            else{
-                
-                JOptionPane.showMessageDialog(this,"username or password is incorrect");
-                
-                admintxtUsername.setText("");
-                adminPassword.setText("");
-                        
-                  
-                }
-            
-        con.close();
-             
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+        
+//        try{
+//            
+//            Class.forName("com.mysql.jdbc.Driver");
+//            Connection con = (Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useSSL=false","root","root@1234");
+//            String username = admintxtUsername.getText();
+//            String password = adminPassword.getText();
+//            
+//            Statement stm = con.createStatement();
+//            String sql = "select * from login where username='"+username+"' and password='"+password+"'";
+//            ResultSet rs = stm.executeQuery(sql);
+//            
+//            if(rs.next())
+//            {
+//                
+//                AdminJPanel adminpanel = new AdminJPanel(mainframe);
+//                mainframe.setRightComponent(adminpanel);
+//            }
+//            else{
+//                
+//                JOptionPane.showMessageDialog(this,"username or password is incorrect");
+//                
+//                admintxtUsername.setText("");
+//                adminPassword.setText("");
+//                        
+//                  
+//                }
+//            
+//        con.close();
+//             
+//        }catch(Exception e){
+//            System.out.println(e.getMessage());
+//        }
 //        mainframe.setContentPane(adminpanel);
 //        mainframe.revalidate();
 
