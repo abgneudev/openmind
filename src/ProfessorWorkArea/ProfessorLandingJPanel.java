@@ -14,14 +14,16 @@ import ui.MainJFrame;
 public class ProfessorLandingJPanel extends javax.swing.JPanel {
     
     MainJFrame mainframe;
+    private String selectedNUID;
 
     /**
      * Creates new form ProfessorLandingJPanel
      */
-    public ProfessorLandingJPanel(MainJFrame mainframe) {
+    public ProfessorLandingJPanel(MainJFrame mainframe,String selectedNUID) {
         initComponents();
         
         this.mainframe = mainframe;
+        this.selectedNUID= selectedNUID;
     }
 
     /**
@@ -115,7 +117,7 @@ public class ProfessorLandingJPanel extends javax.swing.JPanel {
     private void btnCreateCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateCourseActionPerformed
         // TODO add your handling code here:
         
-        CreateCourseJPanel createcourse = new CreateCourseJPanel(mainframe);
+        CreateCourseJPanel createcourse = new CreateCourseJPanel(mainframe,selectedNUID);
         mainframe.setRightComponent(createcourse);
         
     }//GEN-LAST:event_btnCreateCourseActionPerformed
@@ -123,14 +125,14 @@ public class ProfessorLandingJPanel extends javax.swing.JPanel {
     private void btnMyCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyCoursesActionPerformed
         // TODO add your handling code here:
         
-        MyCoursesJPanel mycourses = new MyCoursesJPanel(mainframe);
+        MyCoursesJPanel mycourses = new MyCoursesJPanel(mainframe,selectedNUID);
         mainframe.setRightComponent(mycourses);
     }//GEN-LAST:event_btnMyCoursesActionPerformed
 
     private void btnMyProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyProfileActionPerformed
         // TODO add your handling code here:
         
-        ProfessorProfileJPanel profprofile = new ProfessorProfileJPanel(mainframe);
+        ProfessorProfileJPanel profprofile = new ProfessorProfileJPanel(mainframe,selectedNUID);
         mainframe.setRightComponent(profprofile);
     }//GEN-LAST:event_btnMyProfileActionPerformed
 

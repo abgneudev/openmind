@@ -4,6 +4,12 @@
  */
 package ProfessorWorkArea;
 
+import Database.DatabaseConnection;
+import com.mysql.jdbc.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import ui.MainJFrame;
 
 /**
@@ -12,15 +18,61 @@ import ui.MainJFrame;
  */
 public class ProfessorProfileJPanel extends javax.swing.JPanel {
     
+     private String selectedNUID;
     MainJFrame mainframe;
 
     /**
      * Creates new form ProfessorProfileJPanel
      */
-    public ProfessorProfileJPanel(MainJFrame mainframe) {
-        initComponents();
+    public ProfessorProfileJPanel(MainJFrame mainframe,String selectedNUID) {
+        
         
         this.mainframe = mainframe;
+        this.selectedNUID=selectedNUID;
+        initComponents();
+        viewUserDetails();
+    }
+    
+    private void viewUserDetails() {
+//    String NUID = txtNUID.getText();
+    
+    try {
+         Connection connection = (Connection)DatabaseConnection.getConnection();
+//        selectedNUID = "1234567890";
+        // Define the SQL query to retrieve user details based on NUID
+        String sql = "SELECT Name, Email, Address, ContactNumber, ProfileType, Username, Password FROM UserInformation WHERE NUID = ?";
+    
+            // Create a PreparedStatement
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            // Bind the selectedNUID value to the placeholder
+            preparedStatement.setString(1, selectedNUID);
+           
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+//         System.out.println(resultSet.getString("Name") + "hello");
+        if (resultSet.next()) {
+            // Populate the text fields with retrieved data
+            pertxtNUID.setText(selectedNUID);
+            pertxtName.setText(resultSet.getString("Name"));
+            pertxtEmail.setText(resultSet.getString("Email"));
+            pertxtAddress.setText(resultSet.getString("Address"));
+            pertxtContactNum.setText(resultSet.getString("ContactNumber"));
+            pertxtUsername.setText(resultSet.getString("Username"));
+            pertxtPassword.setText(resultSet.getString("Password"));
+            // ... set the other fields similarly
+        } else {
+            System.out.println("User not found.");
+        }
+
+        resultSet.close();
+        preparedStatement.close();
+       
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }finally {
+//        DatabaseConnection.closeConnection();
+    }
     }
 
     /**
@@ -49,7 +101,7 @@ public class ProfessorProfileJPanel extends javax.swing.JPanel {
         pertxtUsername = new javax.swing.JPasswordField();
         perPassword = new javax.swing.JLabel();
         pertxtPassword = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
@@ -98,11 +150,16 @@ public class ProfessorProfileJPanel extends javax.swing.JPanel {
         perPassword.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         perPassword.setText("Password :");
 
-        jButton1.setBackground(new java.awt.Color(204, 255, 255));
-        jButton1.setForeground(new java.awt.Color(0, 102, 102));
-        jButton1.setText("Update");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setBorderPainted(false);
+        btnUpdate.setBackground(new java.awt.Color(204, 255, 255));
+        btnUpdate.setForeground(new java.awt.Color(0, 102, 102));
+        btnUpdate.setText("Update");
+        btnUpdate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnUpdate.setBorderPainted(false);
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(255, 102, 51));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -121,7 +178,7 @@ public class ProfessorProfileJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(312, 312, 312)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(245, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -180,7 +237,7 @@ public class ProfessorProfileJPanel extends javax.swing.JPanel {
                 .addGap(20, 20, 20)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 441, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -229,14 +286,60 @@ public class ProfessorProfileJPanel extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-       ProfessorLandingJPanel proflanding = new ProfessorLandingJPanel(mainframe);
+       ProfessorLandingJPanel proflanding = new ProfessorLandingJPanel(mainframe,selectedNUID);
        mainframe.setRightComponent(proflanding);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        
+        String updatedName = pertxtName.getText();
+        String updatedEmail = pertxtEmail.getText();
+        String updatedAddress = pertxtAddress.getText();
+        String updatedContact = pertxtContactNum.getText();
+        String updatedUsername = pertxtUsername.getText();
+        String updatedPassword = pertxtPassword.getText();
+
+        try {
+            Connection connection = (Connection) DatabaseConnection.getConnection();
+
+            // Define the SQL update query to update the user's information based on NUID
+            String sql = "UPDATE UserInformation SET Name = ?, Email = ?, Address = ?, ContactNumber = ?, Username = ?, Password = ? WHERE NUID = ?";
+
+            // Create a PreparedStatement
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            // Bind the updated values and the NUID
+            preparedStatement.setString(1, updatedName);
+            preparedStatement.setString(2, updatedEmail);
+            preparedStatement.setString(3, updatedAddress);
+            preparedStatement.setString(4, updatedContact);
+            preparedStatement.setString(5, updatedUsername);
+            preparedStatement.setString(6, updatedPassword);
+            preparedStatement.setString(7, selectedNUID); // Assuming you still have the NUID for this user
+
+            int rowsUpdated = preparedStatement.executeUpdate();
+
+            preparedStatement.close();
+            
+
+            if (rowsUpdated > 0) {
+                // Update was successful
+                JOptionPane.showMessageDialog(mainframe, "User information updated.", "Update Successful", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                // No rows were updated, which may indicate a problem
+                JOptionPane.showMessageDialog(mainframe, "Update failed.", "Update Failed", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CreateProfile;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel perAddress;

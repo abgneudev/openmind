@@ -5,7 +5,15 @@
 package AdminWorkArea.Professors;
 
 import AdminWorkArea.ManageProfessorJPanel;
+import Database.DatabaseConnection;
 import ui.MainJFrame;
+import com.mysql.jdbc.Connection;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import java.sql.SQLException;
 
 /**
  *
@@ -14,14 +22,62 @@ import ui.MainJFrame;
 public class AdminProfessorUpdateJPanel extends javax.swing.JPanel {
     
      MainJFrame mainframe;
+    private String selectedNUID;
 
     /**
      * Creates new form ProfessorUpdateJPanel
      */
-    public AdminProfessorUpdateJPanel( MainJFrame mainframe) {
+    public AdminProfessorUpdateJPanel( MainJFrame mainframe,String selectedNUID) {
         this.mainframe = mainframe;
+        this.selectedNUID = selectedNUID;
+          
         initComponents();
+         viewUserDetails();
+     
     }
+    
+    private void viewUserDetails() {
+//    String NUID = txtNUID.getText();
+    
+    try {
+         Connection connection = (Connection)DatabaseConnection.getConnection();
+
+        // Define the SQL query to retrieve user details based on NUID
+        String sql = "SELECT Name, Email, Address, ContactNumber, ProfileType, Username, Password FROM UserInformation WHERE NUID = ?";
+    
+            // Create a PreparedStatement
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            // Bind the selectedNUID value to the placeholder
+            preparedStatement.setString(1, selectedNUID);
+           
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+//         System.out.println(resultSet.getString("Name") + "hello");
+        if (resultSet.next()) {
+            // Populate the text fields with retrieved data
+            txtNUID.setText(selectedNUID);
+            txtName.setText(resultSet.getString("Name"));
+            txtEmail.setText(resultSet.getString("Email"));
+            txtAddress.setText(resultSet.getString("Address"));
+            txtContact.setText(resultSet.getString("ContactNumber"));
+            txtUsername.setText(resultSet.getString("Username"));
+            txtPassword.setText(resultSet.getString("Password"));
+            // ... set the other fields similarly
+        } else {
+            System.out.println("User not found.");
+        }
+
+        resultSet.close();
+        preparedStatement.close();
+       
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }finally {
+//        DatabaseConnection.closeConnection();
+    }
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -141,6 +197,11 @@ public class AdminProfessorUpdateJPanel extends javax.swing.JPanel {
         btnUpdate.setText("Update");
         btnUpdate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnUpdate.setBorderPainted(false);
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnBack.setBackground(new java.awt.Color(255, 102, 51));
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
@@ -270,6 +331,53 @@ public class AdminProfessorUpdateJPanel extends javax.swing.JPanel {
          ManageProfessorJPanel manageprofpanel = new ManageProfessorJPanel(mainframe);
         mainframe.setRightComponent(manageprofpanel);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        
+        String updatedName = txtName.getText();
+        String updatedEmail = txtEmail.getText();
+        String updatedAddress = txtAddress.getText();
+        String updatedContact = txtContact.getText();
+        String updatedUsername = txtUsername.getText();
+        String updatedPassword = txtPassword.getText();
+
+        try {
+            Connection connection = (Connection) DatabaseConnection.getConnection();
+
+            // Define the SQL update query to update the user's information based on NUID
+            String sql = "UPDATE UserInformation SET Name = ?, Email = ?, Address = ?, ContactNumber = ?, Username = ?, Password = ? WHERE NUID = ?";
+
+            // Create a PreparedStatement
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            // Bind the updated values and the NUID
+            preparedStatement.setString(1, updatedName);
+            preparedStatement.setString(2, updatedEmail);
+            preparedStatement.setString(3, updatedAddress);
+            preparedStatement.setString(4, updatedContact);
+            preparedStatement.setString(5, updatedUsername);
+            preparedStatement.setString(6, updatedPassword);
+            preparedStatement.setString(7, selectedNUID); // Assuming you still have the NUID for this user
+
+            int rowsUpdated = preparedStatement.executeUpdate();
+
+            preparedStatement.close();
+            
+
+            if (rowsUpdated > 0) {
+                // Update was successful
+                JOptionPane.showMessageDialog(mainframe, "User information updated.", "Update Successful", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                // No rows were updated, which may indicate a problem
+                JOptionPane.showMessageDialog(mainframe, "Update failed.", "Update Failed", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

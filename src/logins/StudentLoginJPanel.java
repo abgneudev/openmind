@@ -4,6 +4,11 @@
  */
 package logins;
 
+import Database.DatabaseConnection;
+import ProfessorWorkArea.ProfessorLandingJPanel;
+import com.mysql.jdbc.Connection;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import ui.LandingJPanel;
 import ui.MainJFrame;
 
@@ -12,7 +17,7 @@ import ui.MainJFrame;
  * @author abhilashkumargorle
  */
 public class StudentLoginJPanel extends javax.swing.JPanel {
-    
+     private String selectedNUID;
      private MainJFrame mainframe;
 
     /**
@@ -36,8 +41,8 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
         HelloProfessor1 = new javax.swing.JLabel();
         stulblUsername = new javax.swing.JLabel();
         stulblPassword = new javax.swing.JLabel();
-        userbtnLogin1 = new javax.swing.JButton();
-        stutxtUsername1 = new javax.swing.JTextField();
+        btnLogin = new javax.swing.JButton();
+        stutxtUsername = new javax.swing.JTextField();
         stubtnBack = new javax.swing.JButton();
         stuPassword = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
@@ -61,11 +66,11 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
         stulblPassword.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         stulblPassword.setText("Password :");
 
-        userbtnLogin1.setForeground(new java.awt.Color(0, 102, 102));
-        userbtnLogin1.setText("Login");
-        userbtnLogin1.addActionListener(new java.awt.event.ActionListener() {
+        btnLogin.setForeground(new java.awt.Color(0, 102, 102));
+        btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userbtnLogin1ActionPerformed(evt);
+                btnLoginActionPerformed(evt);
             }
         });
 
@@ -107,14 +112,14 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
                     .addComponent(stulblPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(StudentLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(stutxtUsername1)
+                    .addComponent(stutxtUsername)
                     .addComponent(stuPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 355, Short.MAX_VALUE))
             .addGroup(StudentLoginJPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(StudentLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StudentLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(userbtnLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StudentLoginJPanelLayout.createSequentialGroup()
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(stubtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -136,14 +141,14 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
                 .addGap(42, 42, 42)
                 .addGroup(StudentLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(stulblUsername)
-                    .addComponent(stutxtUsername1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(stutxtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(StudentLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(stulblPassword)
                     .addComponent(stuPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
-                .addComponent(userbtnLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(adminbtnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -168,13 +173,49 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(StudentLoginJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)))
+                    .addComponent(StudentLoginJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void userbtnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userbtnLogin1ActionPerformed
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userbtnLogin1ActionPerformed
+        try{
+            
+            Connection connection = (Connection)DatabaseConnection.getConnection();
+            String username = stutxtUsername.getText();
+            String password = stuPassword.getText();
+            
+            String sql = "SELECT * FROM UserInformation WHERE username = ? AND password = ? AND ProfileType = 'Student'";
+            java.sql.PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            
+            if(rs.next())
+            {
+                selectedNUID = rs.getString("NUID");
+                System.out.println("selectedNUID" + selectedNUID );
+                ProfessorLandingJPanel proflanding = new ProfessorLandingJPanel(mainframe, selectedNUID);
+                mainframe.setRightComponent(proflanding);
+            }
+            else{
+                
+                 JOptionPane.showMessageDialog(this,"username or password is incorrect");
+                
+                stutxtUsername.setText("");
+                stuPassword.setText("");
+                        
+                  
+                }
+            
+       
+             
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     private void stubtnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stubtnBackActionPerformed
         // TODO add your handling code here:
@@ -195,12 +236,12 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel HelloProfessor1;
     private javax.swing.JPanel StudentLoginJPanel;
     private javax.swing.JButton adminbtnRegister;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPasswordField stuPassword;
     private javax.swing.JButton stubtnBack;
     private javax.swing.JLabel stulblPassword;
     private javax.swing.JLabel stulblUsername;
-    private javax.swing.JTextField stutxtUsername1;
-    private javax.swing.JButton userbtnLogin1;
+    private javax.swing.JTextField stutxtUsername;
     // End of variables declaration//GEN-END:variables
 }

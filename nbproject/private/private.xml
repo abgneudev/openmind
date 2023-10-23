@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Abhinav%20Uni/OneDrive%20-%20Northeastern%20University/Documents/AED%20Group/openmind/src/AdminWorkArea/ManageEmployerJPanel.java</file>
-            <file>file:/C:/Users/Abhinav%20Uni/OneDrive%20-%20Northeastern%20University/Documents/AED%20Group/openmind/src/AdminWorkArea/ManageProfessorJPanel.java</file>
-            <file>file:/C:/Users/Abhinav%20Uni/OneDrive%20-%20Northeastern%20University/Documents/AED%20Group/openmind/src/logins/AdminLoginJPanel.java</file>
+            <file>file:/Users/abhilashkumargorle/Documents/openmind/src/ui/MainJFrame.java</file>
+            <file>file:/Users/abhilashkumargorle/Documents/openmind/src/AdminWorkArea/Professors/AdminProfessorUpdateJPanel.java</file>
+            <file>file:/Users/abhilashkumargorle/Documents/openmind/src/Database/DatabaseConnection.java</file>
+            <file>file:/Users/abhilashkumargorle/Documents/openmind/src/AdminWorkArea/ManageProfessorJPanel.java</file>
         </group>
     </open-files>
 </project-private>

@@ -6,14 +6,15 @@ package logins;
 
 
 import com.mysql.jdbc.Connection;
-//import com.mysql.jdbc.Statement;
 import java.sql.Statement;
-
-import ui.LandingJPanel;
-import ui.MainJFrame;
+import java.sql.PreparedStatement;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import ui.LandingJPanel;
+
+import ui.MainJFrame;
+
 import AdminWorkArea.AdminLandingJPanel;
 
 
@@ -34,6 +35,8 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
         this.mainframe =mainframe;
         initComponents();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -196,42 +199,42 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
     private void adminbtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminbtnLoginActionPerformed
         // TODO add your handling code here:
         
-         AdminLandingJPanel adminlanding = new AdminLandingJPanel(mainframe);
-         mainframe.setRightComponent(adminlanding);
+//         AdminLandingJPanel adminlanding = new AdminLandingJPanel(mainframe);
+//         mainframe.setRightComponent(adminlanding);
         
         
-//        try{
-//            
-//            Class.forName("com.mysql.jdbc.Driver");
-//            Connection con = (Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useSSL=false","root","root@1234");
-//            String username = admintxtUsername.getText();
-//            String password = adminPassword.getText();
-//            
-//            Statement stm = con.createStatement();
-//            String sql = "select * from login where username='"+username+"' and password='"+password+"'";
-//            ResultSet rs = stm.executeQuery(sql);
-//            
-//            if(rs.next())
-//            {
-//                
-//                AdminJPanel adminpanel = new AdminJPanel(mainframe);
-//                mainframe.setRightComponent(adminpanel);
-//            }
-//            else{
-//                
-//                JOptionPane.showMessageDialog(this,"username or password is incorrect");
-//                
-//                admintxtUsername.setText("");
-//                adminPassword.setText("");
-//                        
-//                  
-//                }
-//            
-//        con.close();
-//             
-//        }catch(Exception e){
-//            System.out.println(e.getMessage());
-//        }
+        try{
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = (Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useSSL=false","root","root@1234");
+            String username = admintxtUsername.getText();
+            String password = adminPassword.getText();
+            
+            Statement stm = con.createStatement();
+            String sql = "select * from login where username='"+username+"' and password='"+password+"'";
+            ResultSet rs = stm.executeQuery(sql);
+            
+            if(rs.next())
+            {
+                
+                AdminLandingJPanel adminlanding = new AdminLandingJPanel(mainframe);
+                  mainframe.setRightComponent(adminlanding);
+            }
+            else{
+                
+                JOptionPane.showMessageDialog(this,"username or password is incorrect");
+                
+                admintxtUsername.setText("");
+                adminPassword.setText("");
+                        
+                  
+                }
+            
+        con.close();
+             
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
 //        mainframe.setContentPane(adminpanel);
 //        mainframe.revalidate();
 

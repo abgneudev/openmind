@@ -6,6 +6,16 @@ package ProfessorWorkArea;
 
 import ui.MainJFrame;
 import ProfessorWorkArea.ProfessorLandingJPanel;
+import javax.swing.JOptionPane;
+import Database.DatabaseConnection;
+import com.mysql.jdbc.Connection;
+import java.sql.ResultSet;
+
+
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Vector;
 
 /**
  *
@@ -13,12 +23,15 @@ import ProfessorWorkArea.ProfessorLandingJPanel;
  */
 public class CreateCourseJPanel extends javax.swing.JPanel {
     
+    
+    private String selectedNUID;
     MainJFrame mainframe;
 
     /**
      * Creates new form CreateCourseJPanel
      */
-    public CreateCourseJPanel(MainJFrame mainframe) {
+    public CreateCourseJPanel(MainJFrame mainframe,String selectedNUID) {
+        this.selectedNUID = selectedNUID;
         initComponents();
         
         this.mainframe = mainframe;
@@ -36,14 +49,14 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtYear1 = new javax.swing.JTextField();
+        txtSemester = new javax.swing.JTextField();
         txtLectureLink1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         lblLectureName2 = new javax.swing.JLabel();
         txtCourseName = new javax.swing.JTextField();
+        txtLectureDesc3 = new javax.swing.JTextField();
         txtLectureDesc2 = new javax.swing.JTextField();
-        txtLectureDesc1 = new javax.swing.JTextField();
-        lblCourseID1 = new javax.swing.JLabel();
+        lblCourseDesc = new javax.swing.JLabel();
         lblLectureName3 = new javax.swing.JLabel();
         txtLectureName3 = new javax.swing.JTextField();
         txtLectureName1 = new javax.swing.JTextField();
@@ -52,12 +65,12 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
         lblLectureDesc2 = new javax.swing.JLabel();
         lblYear = new javax.swing.JLabel();
         lblLectureDesc = new javax.swing.JLabel();
-        lblYear1 = new javax.swing.JLabel();
+        lblSemester = new javax.swing.JLabel();
         txtLectureLink2 = new javax.swing.JTextField();
         txtLectureLink3 = new javax.swing.JTextField();
         txtLectureName2 = new javax.swing.JTextField();
-        txtLectureDesc = new javax.swing.JTextField();
-        txtCourseID1 = new javax.swing.JTextField();
+        txtLectureDesc1 = new javax.swing.JTextField();
+        txtCourseDesc = new javax.swing.JTextField();
         txtYear = new javax.swing.JTextField();
         lbllecturelink1 = new javax.swing.JLabel();
         lblCourseName = new javax.swing.JLabel();
@@ -82,7 +95,7 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
         txtProjectReq4 = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
 
@@ -109,10 +122,10 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
         lblLectureName2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblLectureName2.setText("Lecture 2 :");
 
-        lblCourseID1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        lblCourseID1.setForeground(new java.awt.Color(255, 255, 255));
-        lblCourseID1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblCourseID1.setText("Course Desc :");
+        lblCourseDesc.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblCourseDesc.setForeground(new java.awt.Color(255, 255, 255));
+        lblCourseDesc.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCourseDesc.setText("Course Desc :");
 
         lblLectureName3.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         lblLectureName3.setForeground(new java.awt.Color(255, 255, 255));
@@ -144,10 +157,10 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
         lblLectureDesc.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblLectureDesc.setText("Lecture Desc :");
 
-        lblYear1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        lblYear1.setForeground(new java.awt.Color(255, 255, 255));
-        lblYear1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblYear1.setText("Semester:");
+        lblSemester.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblSemester.setForeground(new java.awt.Color(255, 255, 255));
+        lblSemester.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblSemester.setText("Semester:");
 
         txtLectureLink2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -276,14 +289,14 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(255, 255, 153));
         jLabel4.setText("All fields are required to be filled!");
 
-        jButton1.setBackground(new java.awt.Color(255, 102, 51));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Back");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setBorderPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setBackground(new java.awt.Color(255, 102, 51));
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("Back");
+        btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBack.setBorderPainted(false);
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -327,7 +340,7 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
                                         .addComponent(lbllecturelink3)
                                         .addGap(18, 18, 18)
                                         .addComponent(txtLectureLink3, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(txtLectureDesc2)))
+                                    .addComponent(txtLectureDesc3)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblLectureDesc1)
@@ -340,7 +353,7 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
                                         .addComponent(lbllecturelink2)
                                         .addGap(18, 18, 18)
                                         .addComponent(txtLectureLink2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(txtLectureDesc1)))
+                                    .addComponent(txtLectureDesc2)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblLectureDesc)
@@ -348,7 +361,7 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtLectureName1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtLectureDesc)))
+                                    .addComponent(txtLectureDesc1)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblCourseID)
                                 .addGap(31, 31, 31)
@@ -359,17 +372,17 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
                                 .addComponent(txtCourseName, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCourseID1)
+                                    .addComponent(lblCourseDesc)
                                     .addComponent(lblYear))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblYear1)
+                                        .addComponent(lblSemester)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtYear1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(txtCourseID1)))
+                                        .addComponent(txtSemester, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtCourseDesc)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
@@ -386,7 +399,7 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(lbllecturelink1)
                                         .addGap(18, 18, 18)
@@ -413,7 +426,7 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(2, 2, 2)
@@ -426,14 +439,14 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
                     .addComponent(txtCourseID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCourseID1)
-                    .addComponent(txtCourseID1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCourseDesc)
+                    .addComponent(txtCourseDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblYear)
                     .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblYear1)
-                    .addComponent(txtYear1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblSemester)
+                    .addComponent(txtSemester, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -445,7 +458,7 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLectureDesc)
-                    .addComponent(txtLectureDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtLectureDesc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbllecturelink2)
@@ -455,7 +468,7 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLectureDesc1)
-                    .addComponent(txtLectureDesc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtLectureDesc2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbllecturelink3)
@@ -465,7 +478,7 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLectureDesc2)
-                    .addComponent(txtLectureDesc2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtLectureDesc3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -509,7 +522,7 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 815, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -551,27 +564,105 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
+        int CourseID = Integer.parseInt(txtCourseID.getText());
+        String NUID = selectedNUID;
+        
+        String courseName = txtCourseName.getText();
+        String courseDescription = txtCourseDesc.getText();
+        String semester = txtSemester.getText();
+        int year = Integer.parseInt(txtYear.getText()); 
+        String Lecture1Name = txtLectureName1.getText();
+        String Lecture1Description =txtLectureDesc2.getText();
+        String Lecture1Link = txtLectureLink1.getText();
+        String Lecture2Name = txtLectureName2.getText();
+        String Lecture2Description = txtLectureDesc3.getText();
+        String Lecture2Link = txtLectureLink2.getText();
+        String Lecture3Name = txtLectureName3.getText();
+        String Lecture3Description = txtLectureDesc3.getText();
+        String Lecture3Link = txtLectureLink3.getText();
+        String  ProjectName = txtProjectName.getText();
+        String ProjectDescription = txtProjectDesc.getText();
+        String ProjectReferences = txtProjectReferences.getText();
+        String ProjectRequirement1 = txtProjectReq1.getText();
+        String ProjectRequirement2 = txtProjectReq2.getText();
+        String ProjectRequirement3 = txtProjectReq3.getText();
+        String ProjectRequirement4 = txtProjectReq4.getText();
+        
+                try {
+            Connection connection = (Connection) DatabaseConnection.getConnection();
+
+            // Define the SQL INSERT query
+            String sql = "INSERT INTO Courses (CourseID, NUID, CourseName, CourseDescription, Semester, Year, Lecture1Name, Lecture1Description, Lecture1Link,Lecture2Name, Lecture2Description, Lecture2Link,Lecture3Name, Lecture3Description, Lecture3Link,ProjectName,ProjectDescription,ProjectReferences, ProjectRequirement1,ProjectRequirement2,ProjectRequirement3,ProjectRequirement4)";
+            sql += "VALUES (?, ?,?,?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?,?,?,?,?)";
+            
+            // Create a PreparedStatement
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            // Bind the values to the placeholders
+            preparedStatement.setInt(1, CourseID);
+            preparedStatement.setString(2,  NUID );
+            preparedStatement.setString(3, courseName);
+            preparedStatement.setString(4, courseDescription);
+            preparedStatement.setString(5, semester);
+            preparedStatement.setInt(6, year);
+           
+            preparedStatement.setString(7, Lecture1Name);
+            preparedStatement.setString(8, Lecture1Description);
+            preparedStatement.setString(9, Lecture1Link);
+            preparedStatement.setString(10, Lecture2Name);
+            preparedStatement.setString(11, Lecture2Description);
+            preparedStatement.setString(12, Lecture2Link);
+            preparedStatement.setString(13, Lecture3Name);
+            preparedStatement.setString(14, Lecture3Description);
+            preparedStatement.setString(15, Lecture3Link);
+            preparedStatement.setString(16, ProjectName);
+            preparedStatement.setString(17, ProjectDescription);
+            preparedStatement.setString(18, ProjectReferences);
+            preparedStatement.setString(19, ProjectRequirement1);
+            preparedStatement.setString(20, ProjectRequirement2);
+            preparedStatement.setString(21, ProjectRequirement3);
+            preparedStatement.setString(22, ProjectRequirement4);
+           
+            // Bind values for lectures, projects, etc. in a similar manner
+
+            // Execute the INSERT query
+            preparedStatement.executeUpdate();
+
+            preparedStatement.close();
+//            DatabaseConnection.closeConnection(co);
+
+            // Display a success message
+            JOptionPane.showMessageDialog(mainframe, "Data saved successfully.", "Save Successful", JOptionPane.INFORMATION_MESSAGE);
+           }catch (SQLException ex) {
+            ex.printStackTrace();
+            // Display an error message if there's an issue with saving the data
+            JOptionPane.showMessageDialog(mainframe, "Error saving data.", "Save Failed", JOptionPane.ERROR_MESSAGE);
+        }
+
+        
+        
+        
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         
-        ProfessorLandingJPanel proflanding = new ProfessorLandingJPanel(mainframe);
+        ProfessorLandingJPanel proflanding = new ProfessorLandingJPanel(mainframe,selectedNUID);
         mainframe.setRightComponent(proflanding);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSave;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCourseDesc;
     private javax.swing.JLabel lblCourseID;
-    private javax.swing.JLabel lblCourseID1;
     private javax.swing.JLabel lblCourseName;
     private javax.swing.JLabel lblLectureDesc;
     private javax.swing.JLabel lblLectureDesc1;
@@ -586,17 +677,17 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblProjectreq2;
     private javax.swing.JLabel lblProjectreq3;
     private javax.swing.JLabel lblProjectreq4;
+    private javax.swing.JLabel lblSemester;
     private javax.swing.JLabel lblYear;
-    private javax.swing.JLabel lblYear1;
     private javax.swing.JLabel lbllecturelink1;
     private javax.swing.JLabel lbllecturelink2;
     private javax.swing.JLabel lbllecturelink3;
+    private javax.swing.JTextField txtCourseDesc;
     private javax.swing.JTextField txtCourseID;
-    private javax.swing.JTextField txtCourseID1;
     private javax.swing.JTextField txtCourseName;
-    private javax.swing.JTextField txtLectureDesc;
     private javax.swing.JTextField txtLectureDesc1;
     private javax.swing.JTextField txtLectureDesc2;
+    private javax.swing.JTextField txtLectureDesc3;
     private javax.swing.JTextField txtLectureLink1;
     private javax.swing.JTextField txtLectureLink2;
     private javax.swing.JTextField txtLectureLink3;
@@ -610,7 +701,7 @@ public class CreateCourseJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtProjectReq2;
     private javax.swing.JTextField txtProjectReq3;
     private javax.swing.JTextField txtProjectReq4;
+    private javax.swing.JTextField txtSemester;
     private javax.swing.JTextField txtYear;
-    private javax.swing.JTextField txtYear1;
     // End of variables declaration//GEN-END:variables
 }

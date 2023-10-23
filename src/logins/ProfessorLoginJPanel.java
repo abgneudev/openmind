@@ -4,7 +4,15 @@
  */
 package logins;
 
+import AdminWorkArea.AdminLandingJPanel;
+import Database.DatabaseConnection;
 import ProfessorWorkArea.ProfessorLandingJPanel;
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 import ui.LandingJPanel;
 import ui.MainJFrame;
 
@@ -15,10 +23,12 @@ import ui.MainJFrame;
 public class ProfessorLoginJPanel extends javax.swing.JPanel {
     
      private MainJFrame mainframe;
+     private String selectedNUID;
     /**
      * Creates new form ProfessorLoginJPanel
      */
     public ProfessorLoginJPanel(MainJFrame mainframe) {
+        
         
         this.mainframe = mainframe;
         
@@ -177,8 +187,43 @@ public class ProfessorLoginJPanel extends javax.swing.JPanel {
     private void userbtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userbtnLoginActionPerformed
         // TODO add your handling code here:
         
-        ProfessorLandingJPanel proflanding = new ProfessorLandingJPanel(mainframe);
-        mainframe.setRightComponent(proflanding);
+          try{
+            
+            Connection connection = (Connection)DatabaseConnection.getConnection();
+            String username = proftxtUsername.getText();
+            String password = profPassword.getText();
+            
+            String sql = "SELECT * FROM UserInformation WHERE username = ? AND password = ? AND ProfileType = 'Professor'";
+            java.sql.PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            
+            if(rs.next())
+            {
+                selectedNUID = rs.getString("NUID");
+                System.out.println("selectedNUID" + selectedNUID );
+                ProfessorLandingJPanel proflanding = new ProfessorLandingJPanel(mainframe, selectedNUID);
+                mainframe.setRightComponent(proflanding);
+            }
+            else{
+                
+                 JOptionPane.showMessageDialog(this,"username or password is incorrect");
+                
+                proftxtUsername.setText("");
+                profPassword.setText("");
+                        
+                  
+                }
+            
+       
+             
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+        
 
     }//GEN-LAST:event_userbtnLoginActionPerformed
 
