@@ -5,9 +5,7 @@
 package AdminWorkArea;
 
 import AdminWorkArea.Students.AdminStudentUpdateJPanel;
-import AdminWorkArea.Students.CreateStudentUserJPanel;
 import AdminWorkArea.Students.StudentCreateProfileJPanel;
-import logins.AdminLoginJPanel;
 import ui.MainJFrame;
 
 /**
@@ -42,7 +40,6 @@ public class ManageStudentJPanel extends javax.swing.JPanel {
         btnCreateProfile = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        btnNewUser = new javax.swing.JButton();
         btnback = new javax.swing.JButton();
         btnUpdate1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -110,16 +107,6 @@ public class ManageStudentJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnNewUser.setForeground(new java.awt.Color(0, 102, 102));
-        btnNewUser.setText("Create New User");
-        btnNewUser.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnNewUser.setBorderPainted(false);
-        btnNewUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNewUserActionPerformed(evt);
-            }
-        });
-
         btnback.setBackground(new java.awt.Color(255, 102, 51));
         btnback.setForeground(new java.awt.Color(255, 255, 255));
         btnback.setText("Back");
@@ -163,7 +150,6 @@ public class ManageStudentJPanel extends javax.swing.JPanel {
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnCreateProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -173,7 +159,7 @@ public class ManageStudentJPanel extends javax.swing.JPanel {
                 .addContainerGap(250, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCreateProfile, btnDelete, btnNewUser, btnView});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCreateProfile, btnDelete, btnView});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,8 +176,6 @@ public class ManageStudentJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnCreateProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -202,7 +186,7 @@ public class ManageStudentJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCreateProfile, btnDelete, btnNewUser, btnView});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCreateProfile, btnDelete, btnView});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -215,13 +199,6 @@ public class ManageStudentJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnCreateProfileActionPerformed
 
-    private void btnNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewUserActionPerformed
-        // TODO add your handling code here:
-        
-         CreateStudentUserJPanel createstuuser = new CreateStudentUserJPanel(mainframe);
-       mainframe.setRightComponent(createstuuser);
-    }//GEN-LAST:event_btnNewUserActionPerformed
-
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteActionPerformed
@@ -232,8 +209,6 @@ public class ManageStudentJPanel extends javax.swing.JPanel {
         AdminLandingJPanel adminlanding = new AdminLandingJPanel(mainframe);
         mainframe.setRightComponent(adminlanding);
        
-      
-      
     }//GEN-LAST:event_btnbackActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -251,7 +226,6 @@ public class ManageStudentJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateProfile;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnNewUser;
     private javax.swing.JButton btnUpdate1;
     private javax.swing.JButton btnView;
     private javax.swing.JButton btnback;

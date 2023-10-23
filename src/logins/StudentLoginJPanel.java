@@ -40,6 +40,8 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
         stutxtUsername1 = new javax.swing.JTextField();
         stubtnBack = new javax.swing.JButton();
         stuPassword = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        adminbtnRegister = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(969, 407));
 
@@ -78,6 +80,22 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 8)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel1.setText("Not registered yet? ");
+
+        adminbtnRegister.setBackground(new java.awt.Color(204, 255, 255));
+        adminbtnRegister.setForeground(new java.awt.Color(0, 102, 102));
+        adminbtnRegister.setText("Register");
+        adminbtnRegister.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        adminbtnRegister.setBorderPainted(false);
+        adminbtnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminbtnRegisterActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout StudentLoginJPanelLayout = new javax.swing.GroupLayout(StudentLoginJPanel);
         StudentLoginJPanel.setLayout(StudentLoginJPanelLayout);
         StudentLoginJPanelLayout.setHorizontalGroup(
@@ -93,18 +111,21 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
                     .addComponent(stuPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 355, Short.MAX_VALUE))
             .addGroup(StudentLoginJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(StudentLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(StudentLoginJPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StudentLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(userbtnLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StudentLoginJPanelLayout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(stubtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(31, 31, 31))
                         .addGroup(StudentLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(userbtnLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StudentLoginJPanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(stubtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31))))
-                    .addGroup(StudentLoginJPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(HelloProfessor1)))
+                            .addComponent(adminbtnRegister, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(StudentLoginJPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(HelloProfessor1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         StudentLoginJPanelLayout.setVerticalGroup(
@@ -122,9 +143,13 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
                     .addComponent(stuPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(userbtnLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(adminbtnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(stubtnBack)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addComponent(stubtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61))
         );
 
         StudentLoginJPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {stuPassword, stubtnBack});
@@ -133,17 +158,17 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 745, Short.MAX_VALUE)
+            .addGap(0, 969, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(StudentLoginJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 422, Short.MAX_VALUE)
+            .addGap(0, 514, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(StudentLoginJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)))
+                    .addComponent(StudentLoginJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -158,10 +183,19 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_stubtnBackActionPerformed
 
+    private void adminbtnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminbtnRegisterActionPerformed
+        // TODO add your handling code here:
+
+        CreateProfileJPanel login = new CreateProfileJPanel(mainframe);
+        mainframe.setRightComponent(login);
+    }//GEN-LAST:event_adminbtnRegisterActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel HelloProfessor1;
     private javax.swing.JPanel StudentLoginJPanel;
+    private javax.swing.JButton adminbtnRegister;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPasswordField stuPassword;
     private javax.swing.JButton stubtnBack;
     private javax.swing.JLabel stulblPassword;

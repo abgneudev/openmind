@@ -81,7 +81,7 @@ public class MainJFrame extends javax.swing.JFrame {
         LoginJPanel.setBackground(new java.awt.Color(255, 255, 255));
         LoginJPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         LoginJPanel.setForeground(new java.awt.Color(0, 0, 102));
-        LoginJPanel.setPreferredSize(new java.awt.Dimension(400, 393));
+        LoginJPanel.setPreferredSize(new java.awt.Dimension(610, 393));
 
         btnAdmin.setForeground(new java.awt.Color(0, 102, 102));
         btnAdmin.setText("Admin");

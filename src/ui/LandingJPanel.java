@@ -64,7 +64,7 @@ public class LandingJPanel extends javax.swing.JPanel {
                 .addComponent(action)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(warningMsg)
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

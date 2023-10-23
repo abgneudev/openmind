@@ -41,6 +41,8 @@ public class EmployerLoginJPanel extends javax.swing.JPanel {
         stutxtUsername4 = new javax.swing.JTextField();
         stubtnBack3 = new javax.swing.JButton();
         stuPassword3 = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        adminbtnRegister1 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(969, 407));
 
@@ -82,21 +84,30 @@ public class EmployerLoginJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 8)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel1.setText("Not registered yet? ");
+
+        adminbtnRegister1.setBackground(new java.awt.Color(204, 255, 255));
+        adminbtnRegister1.setForeground(new java.awt.Color(0, 102, 102));
+        adminbtnRegister1.setText("Register");
+        adminbtnRegister1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        adminbtnRegister1.setBorderPainted(false);
+        adminbtnRegister1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminbtnRegister1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout EmployerLoginJPanel2Layout = new javax.swing.GroupLayout(EmployerLoginJPanel2);
         EmployerLoginJPanel2.setLayout(EmployerLoginJPanel2Layout);
         EmployerLoginJPanel2Layout.setHorizontalGroup(
             EmployerLoginJPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployerLoginJPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(userbtnLogin4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(EmployerLoginJPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(stubtnBack3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(EmployerLoginJPanel2Layout.createSequentialGroup()
-                .addContainerGap(347, Short.MAX_VALUE)
                 .addGroup(EmployerLoginJPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(HelloProfessor4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployerLoginJPanel2Layout.createSequentialGroup()
                         .addGroup(EmployerLoginJPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(stulblUsername3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -104,14 +115,28 @@ public class EmployerLoginJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(EmployerLoginJPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(stutxtUsername4)
-                            .addComponent(stuPassword3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(HelloProfessor4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(348, Short.MAX_VALUE))
+                            .addComponent(stuPassword3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployerLoginJPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(stubtnBack3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(414, 414, 414))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployerLoginJPanel2Layout.createSequentialGroup()
+                .addContainerGap(439, Short.MAX_VALUE)
+                .addGroup(EmployerLoginJPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(EmployerLoginJPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(adminbtnRegister1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(EmployerLoginJPanel2Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(userbtnLogin4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(386, Short.MAX_VALUE))
         );
         EmployerLoginJPanel2Layout.setVerticalGroup(
             EmployerLoginJPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EmployerLoginJPanel2Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
+                .addGap(98, 98, 98)
                 .addComponent(HelloProfessor4)
                 .addGap(27, 27, 27)
                 .addGroup(EmployerLoginJPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -121,11 +146,15 @@ public class EmployerLoginJPanel extends javax.swing.JPanel {
                 .addGroup(EmployerLoginJPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(stulblPassword3)
                     .addComponent(stuPassword3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addGap(42, 42, 42)
                 .addComponent(userbtnLogin4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(stubtnBack3)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(adminbtnRegister1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(stubtnBack3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
 
         EmployerLoginJPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {stuPassword3, stubtnBack3});
@@ -140,9 +169,9 @@ public class EmployerLoginJPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 407, Short.MAX_VALUE)
+            .addGap(0, 435, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(EmployerLoginJPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(EmployerLoginJPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -159,10 +188,20 @@ public class EmployerLoginJPanel extends javax.swing.JPanel {
        
     }//GEN-LAST:event_stubtnBack3ActionPerformed
 
+    private void adminbtnRegister1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminbtnRegister1ActionPerformed
+        // TODO add your handling code here:
+
+        CreateProfileJPanel login = new CreateProfileJPanel(mainframe);
+        mainframe.setRightComponent(login);
+    }//GEN-LAST:event_adminbtnRegister1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel EmployerLoginJPanel2;
     private javax.swing.JLabel HelloProfessor4;
+    private javax.swing.JButton adminbtnRegister;
+    private javax.swing.JButton adminbtnRegister1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPasswordField stuPassword3;
     private javax.swing.JButton stubtnBack3;
     private javax.swing.JLabel stulblPassword3;

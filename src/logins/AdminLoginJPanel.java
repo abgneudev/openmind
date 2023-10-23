@@ -52,6 +52,8 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
         admintxtUsername = new javax.swing.JTextField();
         adminbtnBack = new javax.swing.JButton();
         adminPassword = new javax.swing.JPasswordField();
+        adminbtnRegister = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 102, 102));
         setPreferredSize(new java.awt.Dimension(969, 407));
@@ -93,31 +95,54 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
             }
         });
 
+        adminbtnRegister.setBackground(new java.awt.Color(204, 255, 255));
+        adminbtnRegister.setForeground(new java.awt.Color(0, 102, 102));
+        adminbtnRegister.setText("Register");
+        adminbtnRegister.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        adminbtnRegister.setBorderPainted(false);
+        adminbtnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminbtnRegisterActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 8)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel1.setText("Not registered yet? ");
+
         javax.swing.GroupLayout AdminLoginLayout = new javax.swing.GroupLayout(AdminLogin);
         AdminLogin.setLayout(AdminLoginLayout);
         AdminLoginLayout.setHorizontalGroup(
             AdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AdminLoginLayout.createSequentialGroup()
-                .addContainerGap(407, Short.MAX_VALUE)
+                .addGap(404, 404, 404)
+                .addGroup(AdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(adminlblPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(adminlblUsername))
+                .addGap(18, 18, 18)
+                .addGroup(AdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(admintxtUsername)
+                    .addComponent(adminPassword))
+                .addContainerGap(411, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AdminLoginLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(adminbtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AdminLoginLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(AdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AdminLoginLayout.createSequentialGroup()
-                        .addGroup(AdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(adminlblPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(adminlblUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(AdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(admintxtUsername)
-                            .addComponent(adminPassword)))
-                    .addGroup(AdminLoginLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(adminbtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(AdminLoginLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(HelloAdmin))
-                    .addGroup(AdminLoginLayout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(adminbtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(408, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AdminLoginLayout.createSequentialGroup()
+                        .addComponent(HelloAdmin)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AdminLoginLayout.createSequentialGroup()
+                        .addGroup(AdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(adminbtnLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(adminbtnRegister, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AdminLoginLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         AdminLoginLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {adminPassword, adminbtnLogin});
@@ -125,9 +150,9 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
         AdminLoginLayout.setVerticalGroup(
             AdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AdminLoginLayout.createSequentialGroup()
-                .addGap(171, 171, 171)
+                .addGap(172, 172, 172)
                 .addComponent(HelloAdmin)
-                .addGap(34, 34, 34)
+                .addGap(32, 32, 32)
                 .addGroup(AdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(adminlblUsername)
                     .addComponent(admintxtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -135,11 +160,15 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
                 .addGroup(AdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(adminlblPassword)
                     .addComponent(adminPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGap(37, 37, 37)
                 .addComponent(adminbtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(adminbtnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(adminbtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(53, 53, 53))
         );
 
         AdminLoginLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {adminPassword, adminbtnBack});
@@ -148,7 +177,7 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1061, Short.MAX_VALUE)
+            .addGap(0, 1036, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(AdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 1036, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -156,9 +185,11 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGap(0, 543, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(AdminLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE))
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(AdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -219,6 +250,13 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
        
     }//GEN-LAST:event_adminbtnBackActionPerformed
 
+    private void adminbtnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminbtnRegisterActionPerformed
+        // TODO add your handling code here:
+        
+        CreateProfileJPanel login = new CreateProfileJPanel(mainframe);
+        mainframe.setRightComponent(login);
+    }//GEN-LAST:event_adminbtnRegisterActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AdminLogin;
@@ -226,8 +264,10 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
     private javax.swing.JPasswordField adminPassword;
     private javax.swing.JButton adminbtnBack;
     private javax.swing.JButton adminbtnLogin;
+    private javax.swing.JButton adminbtnRegister;
     private javax.swing.JLabel adminlblPassword;
     private javax.swing.JLabel adminlblUsername;
     private javax.swing.JTextField admintxtUsername;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
