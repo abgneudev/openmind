@@ -31,66 +31,65 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButton2" min="-2" pref="89" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jButton2" min="-2" pref="89" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="txtAddress" min="-2" pref="144" max="-2" attributes="0"/>
+                          <Component id="txtEmail" min="-2" pref="144" max="-2" attributes="0"/>
+                          <Component id="txtContact" alignment="1" min="-2" pref="144" max="-2" attributes="0"/>
+                          <Component id="txtUsername" alignment="1" min="-2" pref="144" max="-2" attributes="0"/>
+                          <Component id="txtPassword" alignment="1" min="-2" pref="144" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="perUsername" min="-2" pref="112" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="pertxtUsername" min="-2" pref="144" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="perName" alignment="1" min="-2" pref="112" max="-2" attributes="0"/>
-                                      <Component id="perEmail" alignment="1" min="-2" pref="92" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="pertxtName" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="pertxtEmail" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Component id="perAddress" min="-2" pref="92" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="pertxtAddress" min="-2" pref="144" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="perContactNum" min="-2" pref="112" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="pertxtContactNum" min="-2" pref="144" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="perContactNum1" min="-2" pref="112" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="perPassword" min="-2" pref="112" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="pertxtPassword" min="-2" pref="144" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="perName1" min="-2" pref="84" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="pertxtNUID" min="-2" pref="144" max="-2" attributes="0"/>
+                                  <Component id="txtNUID" min="-2" pref="144" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="CreateProfile" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="48" max="-2" attributes="0"/>
                               </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="perUsername" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="perName" alignment="1" min="-2" pref="112" max="-2" attributes="0"/>
+                                          <Component id="perEmail" alignment="1" min="-2" pref="92" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="txtName" min="-2" pref="144" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Component id="perAddress" min="-2" pref="92" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="perContactNum" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="perContactNum1" min="-2" pref="112" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jComboBox1" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="perPassword" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -104,7 +103,17 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="jButton2" min="-2" pref="34" max="-2" attributes="0"/>
-              <EmptySpace pref="441" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
+              <Component id="txtEmail" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="txtAddress" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="txtContact" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+              <Component id="txtUsername" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="txtPassword" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="93" max="32767" attributes="0"/>
               <Component id="btnUpdate" min="-2" pref="34" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -115,44 +124,29 @@
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="perName1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="pertxtNUID" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNUID" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="perName" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="pertxtName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="perEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="pertxtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="perEmail" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="perAddress" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="pertxtAddress" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="perAddress" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="perContactNum" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="pertxtContactNum" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="perContactNum" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
                       <Component id="perContactNum1" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="perUsername" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="pertxtUsername" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="perUsername" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="perPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="pertxtPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="109" max="32767" attributes="0"/>
+                  <Component id="perPassword" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="139" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -179,7 +173,7 @@
         <Property name="text" type="java.lang.String" value="NUID :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="pertxtNUID">
+    <Component class="javax.swing.JTextField" name="txtNUID">
     </Component>
     <Component class="javax.swing.JLabel" name="perName">
       <Properties>
@@ -190,7 +184,7 @@
         <Property name="text" type="java.lang.String" value="Name :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="pertxtName">
+    <Component class="javax.swing.JTextField" name="txtName">
     </Component>
     <Component class="javax.swing.JLabel" name="perEmail">
       <Properties>
@@ -201,8 +195,6 @@
         <Property name="text" type="java.lang.String" value="email :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="pertxtEmail">
-    </Component>
     <Component class="javax.swing.JLabel" name="perAddress">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -212,8 +204,6 @@
         <Property name="text" type="java.lang.String" value="Address :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="pertxtAddress">
-    </Component>
     <Component class="javax.swing.JLabel" name="perContactNum">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -222,8 +212,6 @@
         <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Contact Number :"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JPasswordField" name="pertxtContactNum">
     </Component>
     <Component class="javax.swing.JLabel" name="perContactNum1">
       <Properties>
@@ -258,8 +246,6 @@
         <Property name="text" type="java.lang.String" value="Username :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="pertxtUsername">
-    </Component>
     <Component class="javax.swing.JLabel" name="perPassword">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -268,8 +254,6 @@
         <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Password :"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JPasswordField" name="pertxtPassword">
     </Component>
     <Component class="javax.swing.JButton" name="btnUpdate">
       <Properties>
@@ -310,6 +294,16 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtEmail">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtAddress">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtContact">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtUsername">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtPassword">
     </Component>
   </SubComponents>
 </Form>

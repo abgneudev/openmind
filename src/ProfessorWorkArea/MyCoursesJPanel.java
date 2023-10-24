@@ -288,6 +288,9 @@ public class MyCoursesJPanel extends javax.swing.JPanel {
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
+        
+        UpdateCourseJPanel updatecourse = new UpdateCourseJPanel(mainframe,selectedNUID);
+        mainframe.setRightComponent(updatecourse);
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
