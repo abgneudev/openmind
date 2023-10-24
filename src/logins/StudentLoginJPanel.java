@@ -6,6 +6,7 @@ package logins;
 
 import Database.DatabaseConnection;
 import ProfessorWorkArea.ProfessorLandingJPanel;
+import StudentWorkArea.StudentLandingJPanel;
 import com.mysql.jdbc.Connection;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
@@ -24,7 +25,8 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
     /**
      * Creates new form StudentLoginJPanel
      */
-    public StudentLoginJPanel(MainJFrame mainframe) {
+    public StudentLoginJPanel(MainJFrame mainframe,String selectedNUID) {
+         this.selectedNUID=selectedNUID;
          this.mainframe =mainframe;
         initComponents();
     }
@@ -197,8 +199,8 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
             {
                 selectedNUID = rs.getString("NUID");
                 System.out.println("selectedNUID" + selectedNUID );
-                ProfessorLandingJPanel proflanding = new ProfessorLandingJPanel(mainframe, selectedNUID);
-                mainframe.setRightComponent(proflanding);
+                StudentLandingJPanel stulanding = new StudentLandingJPanel(mainframe);
+                mainframe.setRightComponent(stulanding);
             }
             else{
                 
