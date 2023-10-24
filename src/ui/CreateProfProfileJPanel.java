@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package logins;
+package ui;
 
 import ui.LandingJPanel;
 import ui.MainJFrame;
@@ -11,14 +11,14 @@ import ui.MainJFrame;
  *
  * @author abhilashkumargorle
  */
-public class CreateProfileJPanel extends javax.swing.JPanel {
+public class CreateProfProfileJPanel extends javax.swing.JPanel {
     
     private MainJFrame mainframe;
 
     /**
      * Creates new form CreateProfileJPanel
      */
-    public CreateProfileJPanel(MainJFrame mainframe) {
+    public CreateProfProfileJPanel(MainJFrame mainframe) {
         
         this.mainframe =mainframe;
         initComponents();
@@ -109,7 +109,7 @@ public class CreateProfileJPanel extends javax.swing.JPanel {
         perContactNum1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         perContactNum1.setText("Profile Type :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select--", "Professor", "Student", "Employer" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Professor" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);

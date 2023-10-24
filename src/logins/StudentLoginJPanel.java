@@ -9,6 +9,7 @@ import ProfessorWorkArea.ProfessorLandingJPanel;
 import com.mysql.jdbc.Connection;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import ui.CreateStuProfileJPanel;
 import ui.LandingJPanel;
 import ui.MainJFrame;
 
@@ -227,7 +228,7 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
     private void adminbtnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminbtnRegisterActionPerformed
         // TODO add your handling code here:
 
-        CreateProfileJPanel login = new CreateProfileJPanel(mainframe);
+        CreateStuProfileJPanel login = new CreateStuProfileJPanel(mainframe);
         mainframe.setRightComponent(login);
     }//GEN-LAST:event_adminbtnRegisterActionPerformed
 

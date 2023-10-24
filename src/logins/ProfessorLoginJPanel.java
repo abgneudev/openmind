@@ -13,6 +13,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import ui.CreateProfProfileJPanel;
 import ui.LandingJPanel;
 import ui.MainJFrame;
 
@@ -238,7 +239,7 @@ public class ProfessorLoginJPanel extends javax.swing.JPanel {
     private void adminbtnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminbtnRegisterActionPerformed
         // TODO add your handling code here:
 
-        CreateProfileJPanel login = new CreateProfileJPanel(mainframe);
+        CreateProfProfileJPanel login = new CreateProfProfileJPanel(mainframe);
         mainframe.setRightComponent(login);
     }//GEN-LAST:event_adminbtnRegisterActionPerformed
 

@@ -4,6 +4,7 @@
  */
 package logins;
 
+import ui.CreateEmpProfileJPanel;
 import ui.LandingJPanel;
 import ui.MainJFrame;
 
@@ -191,7 +192,7 @@ public class EmployerLoginJPanel extends javax.swing.JPanel {
     private void adminbtnRegister1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminbtnRegister1ActionPerformed
         // TODO add your handling code here:
 
-        CreateProfileJPanel login = new CreateProfileJPanel(mainframe);
+        CreateEmpProfileJPanel login = new CreateEmpProfileJPanel(mainframe);
         mainframe.setRightComponent(login);
     }//GEN-LAST:event_adminbtnRegister1ActionPerformed
 

@@ -70,6 +70,9 @@ public class ManageEmployerJPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(jTable1);
 
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 2, 8)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(102, 102, 102));
+        jTextField1.setText("Search NUID..");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);

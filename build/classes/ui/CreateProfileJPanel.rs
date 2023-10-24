@@ -1,3 +1,4 @@
 logins.CreateProfileJPanel$1
 logins.CreateProfileJPanel$2
+logins.CreateProfileJPanel$3
 logins.CreateProfileJPanel

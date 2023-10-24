@@ -134,6 +134,9 @@ public class ManageStudentJPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(tblStudent);
 
+        txtSearch.setFont(new java.awt.Font("Segoe UI", 2, 8)); // NOI18N
+        txtSearch.setForeground(new java.awt.Color(102, 102, 102));
+        txtSearch.setText("Search NUID..");
         txtSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSearchActionPerformed(evt);
