@@ -640,8 +640,8 @@ public class UpdateCourseJPanel extends javax.swing.JPanel {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         
-        ProfessorLandingJPanel proflanding = new ProfessorLandingJPanel(mainframe,selectedNUID);
-        mainframe.setRightComponent(proflanding);
+        MyCoursesJPanel mycourses = new MyCoursesJPanel(mainframe,selectedNUID);
+        mainframe.setRightComponent(mycourses);
     }//GEN-LAST:event_btnBackActionPerformed
 
 
