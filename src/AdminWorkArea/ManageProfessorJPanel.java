@@ -131,7 +131,7 @@ public class ManageProfessorJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "NUID", "Name", "ContactNumber", "Email", "Address"
+                "NUID", "Name", "Contact Number", "Email", "Address"
             }
         ) {
             boolean[] canEdit = new boolean [] {
