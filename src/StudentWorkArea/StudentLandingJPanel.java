@@ -55,11 +55,21 @@ public class StudentLandingJPanel extends javax.swing.JPanel {
         btnMyCourses.setText("My Courses");
         btnMyCourses.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnMyCourses.setBorderPainted(false);
+        btnMyCourses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMyCoursesActionPerformed(evt);
+            }
+        });
 
         btnMyProfile.setForeground(new java.awt.Color(0, 102, 102));
         btnMyProfile.setText("My Profile");
         btnMyProfile.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnMyProfile.setBorderPainted(false);
+        btnMyProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMyProfileActionPerformed(evt);
+            }
+        });
 
         btnLogout.setBackground(new java.awt.Color(255, 0, 0));
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
@@ -76,6 +86,11 @@ public class StudentLandingJPanel extends javax.swing.JPanel {
         btnMyTranscript.setText("Transcript");
         btnMyTranscript.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnMyTranscript.setBorderPainted(false);
+        btnMyTranscript.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMyTranscriptActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -116,7 +131,7 @@ public class StudentLandingJPanel extends javax.swing.JPanel {
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
         
-        LandingJPanel landingpage = new LandingJPanel();
+        LandingJPanel landingpage = new LandingJPanel(mainframe);
         mainframe.setRightComponent(landingpage);
         
     }//GEN-LAST:event_btnLogoutActionPerformed
@@ -124,9 +139,32 @@ public class StudentLandingJPanel extends javax.swing.JPanel {
     private void btnFindCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindCoursesActionPerformed
         // TODO add your handling code here:
         
-        RegisterCoursesJPanel regcos = new RegisterCoursesJPanel();
-        mainframe.setRightComponent(btnLogout);
+        RegisterCoursesJPanel regcos = new RegisterCoursesJPanel(mainframe);
+        mainframe.setRightComponent(regcos);
     }//GEN-LAST:event_btnFindCoursesActionPerformed
+
+    private void btnMyCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyCoursesActionPerformed
+        // TODO add your handling code here:
+        
+        myStudentCoursesJPanel courses = new myStudentCoursesJPanel(mainframe);
+        mainframe.setRightComponent(courses);
+        
+    }//GEN-LAST:event_btnMyCoursesActionPerformed
+
+    private void btnMyProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyProfileActionPerformed
+        // TODO add your handling code here:
+        
+        StudentViewProfileJPanel stuprofile = new StudentViewProfileJPanel(mainframe);
+        mainframe.setRightComponent(stuprofile);
+        
+    }//GEN-LAST:event_btnMyProfileActionPerformed
+
+    private void btnMyTranscriptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyTranscriptActionPerformed
+        // TODO add your handling code here:
+        
+        TranscriptJPanel mytranscript = new TranscriptJPanel(mainframe);
+        mainframe.setRightComponent(mytranscript);
+    }//GEN-LAST:event_btnMyTranscriptActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -9,13 +9,15 @@ package ui;
  * @author abhilashkumargorle
  */
 public class LandingJPanel extends javax.swing.JPanel {
+    
+    MainJFrame mainframe;
 
     /**
      * Creates new form LandingJPanel
      */
-    public LandingJPanel() {
-         System.out.println("hello");
+    public LandingJPanel(MainJFrame mainframe) {
         initComponents();
+        this.mainframe = mainframe;
     }
 
     /**
@@ -105,6 +107,10 @@ public class LandingJPanel extends javax.swing.JPanel {
 
     private void btnDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonateActionPerformed
         // TODO add your handling code here:
+        
+        DonateJPanel donate = new DonateJPanel();
+        mainframe.setRightComponent(donate);
+        
     }//GEN-LAST:event_btnDonateActionPerformed
 
 

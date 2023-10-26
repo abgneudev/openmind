@@ -18,11 +18,9 @@ import java.awt.Component;
  */
 public class MainJFrame extends javax.swing.JFrame {
     
-    
-    
-   
-    
 
+    MainJFrame mainframe;
+    
     /**
      * Creates new form MainJFrame
      */
@@ -32,10 +30,8 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
        
-        LandingJPanel landingpage = new LandingJPanel();
+        LandingJPanel landingpage = new LandingJPanel(mainframe);
         jSplitPane1.setRightComponent(landingpage);
-        
-    
       
     
     }

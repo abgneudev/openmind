@@ -4,6 +4,7 @@
  */
 package AdminWorkArea.Professors;
 
+import AdminWorkArea.ManageProfessorJPanel;
 import AdminWorkArea.Students.*;
 import javax.swing.JOptionPane;
 import ui.LandingJPanel;
@@ -20,8 +21,11 @@ public class AdminViewProfessorJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AdminViewStudentJPanel
      */
-    public AdminViewProfessorJPanel() {
+    public AdminViewProfessorJPanel(MainJFrame mainframe, String selectedNUID) {
         initComponents();
+        
+        this.mainframe = mainframe;
+        this.selectedNUID = selectedNUID;
     }
 
     /**
@@ -40,6 +44,8 @@ public class AdminViewProfessorJPanel extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 102, 102));
+
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
         btnBack.setBackground(new java.awt.Color(255, 0, 0));
@@ -57,17 +63,17 @@ public class AdminViewProfessorJPanel extends javax.swing.JPanel {
 
         tblStudent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "NUID", "Professor Name", "Course", "Year", "Semester", "Professor Course Ratings"
+                "NUID", "Professor Name", "Course", "Year", "Semester", "My Rating", "Course Rating"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -135,15 +141,15 @@ public class AdminViewProfessorJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 24, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
 
-        LandingJPanel landingpage = new LandingJPanel();
-        mainframe.setRightComponent(landingpage);
+        ManageProfessorJPanel manageprof = new ManageProfessorJPanel(mainframe);
+        mainframe.setRightComponent(manageprof);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

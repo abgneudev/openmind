@@ -230,7 +230,7 @@ public class ProfessorLoginJPanel extends javax.swing.JPanel {
 
     private void profbtnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profbtnBackActionPerformed
         // TODO add your handling code here:
-         LandingJPanel landingpanel = new LandingJPanel();
+         LandingJPanel landingpanel = new LandingJPanel(mainframe);
            mainframe.setRightComponent(landingpanel);
 
         

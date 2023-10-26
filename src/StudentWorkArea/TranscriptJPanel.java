@@ -19,8 +19,10 @@ public class TranscriptJPanel extends javax.swing.JPanel {
     /**
      * Creates new form TRanscriptJPanel
      */
-    public TranscriptJPanel() {
+    public TranscriptJPanel(MainJFrame mainframe) {
         initComponents();
+        
+        this.mainframe = mainframe;
     }
 
     /**
@@ -37,6 +39,8 @@ public class TranscriptJPanel extends javax.swing.JPanel {
         btnDownloadTrans = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 102, 102));
+
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
         btnRequestTrans.setForeground(new java.awt.Color(0, 102, 102));
@@ -49,7 +53,7 @@ public class TranscriptJPanel extends javax.swing.JPanel {
         btnDownloadTrans.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDownloadTrans.setBorderPainted(false);
 
-        btnBack.setBackground(new java.awt.Color(255, 0, 0));
+        btnBack.setBackground(new java.awt.Color(255, 102, 51));
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -92,29 +96,30 @@ public class TranscriptJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 595, Short.MAX_VALUE)
+            .addGap(0, 652, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 28, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 29, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 463, Short.MAX_VALUE)
+            .addGap(0, 513, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 25, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 25, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
 
-        LandingJPanel landingpage = new LandingJPanel();
-        mainframe.setRightComponent(landingpage);
+        StudentLandingJPanel stulanding = new StudentLandingJPanel(mainframe);
+        mainframe.setRightComponent(stulanding);
+        
     }//GEN-LAST:event_btnBackActionPerformed
 
 

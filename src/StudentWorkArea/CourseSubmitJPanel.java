@@ -40,6 +40,10 @@ public class CourseSubmitJPanel extends javax.swing.JPanel {
         lblGrade = new javax.swing.JLabel();
         txtRateProf = new javax.swing.JTextField();
         lblRateProf = new javax.swing.JLabel();
+        lblRateCourse = new javax.swing.JLabel();
+        txtRateCourse = new javax.swing.JTextField();
+
+        setBackground(new java.awt.Color(0, 102, 102));
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -53,7 +57,7 @@ public class CourseSubmitJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnBack.setBackground(new java.awt.Color(255, 0, 0));
+        btnBack.setBackground(new java.awt.Color(255, 102, 51));
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -79,6 +83,10 @@ public class CourseSubmitJPanel extends javax.swing.JPanel {
         lblRateProf.setForeground(new java.awt.Color(255, 255, 102));
         lblRateProf.setText("Rate Professor:");
 
+        lblRateCourse.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblRateCourse.setForeground(new java.awt.Color(255, 255, 102));
+        lblRateCourse.setText("Rate Course :");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -95,13 +103,20 @@ public class CourseSubmitJPanel extends javax.swing.JPanel {
                     .addComponent(txtRateProf, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(276, 276, 276)
-                .addComponent(btnRateProf, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(276, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(288, 288, 288)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(276, 276, 276)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblRateCourse)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtRateCourse, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnRateProf, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 75, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,11 +127,15 @@ public class CourseSubmitJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblGrade))
-                .addGap(98, 98, 98)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtRateProf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblRateProf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtRateCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRateCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49)
                 .addComponent(btnRateProf, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addComponent(btnBack)
@@ -144,8 +163,8 @@ public class CourseSubmitJPanel extends javax.swing.JPanel {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
 
-        LandingJPanel landingpage = new LandingJPanel();
-        mainframe.setRightComponent(landingpage);
+        StudentLandingJPanel stulandingpage = new StudentLandingJPanel(mainframe);
+        mainframe.setRightComponent(stulandingpage);
 
     }//GEN-LAST:event_btnBackActionPerformed
 
@@ -160,8 +179,10 @@ public class CourseSubmitJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblGrade;
+    private javax.swing.JLabel lblRateCourse;
     private javax.swing.JLabel lblRateProf;
     private javax.swing.JTextField txtGrade;
+    private javax.swing.JTextField txtRateCourse;
     private javax.swing.JTextField txtRateProf;
     // End of variables declaration//GEN-END:variables
 }

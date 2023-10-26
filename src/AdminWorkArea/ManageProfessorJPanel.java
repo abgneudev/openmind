@@ -7,6 +7,7 @@ package AdminWorkArea;
 import ui.MainJFrame;
 import AdminWorkArea.Professors.ProfessorCreateProfileJPanel;
 import AdminWorkArea.Professors.AdminProfessorUpdateJPanel;
+import AdminWorkArea.Professors.AdminViewProfessorJPanel;
 import Database.DatabaseConnection;
 import com.mysql.jdbc.Connection;
 import java.sql.ResultSet;
@@ -17,6 +18,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
+import ui.GiveProfessorFeedbackJPanel;
 /**
  *
  * @author abhilashkumargorle
@@ -117,6 +119,7 @@ public class ManageProfessorJPanel extends javax.swing.JPanel {
         btnback = new javax.swing.JButton();
         btnUpdate1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnFeedback = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
         setPreferredSize(new java.awt.Dimension(969, 407));
@@ -177,6 +180,11 @@ public class ManageProfessorJPanel extends javax.swing.JPanel {
         btnView.setText("View");
         btnView.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnView.setBorderPainted(false);
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
 
         btnDelete.setBackground(new java.awt.Color(255, 0, 0));
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
@@ -212,6 +220,16 @@ public class ManageProfessorJPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Professors");
 
+        btnFeedback.setForeground(new java.awt.Color(0, 102, 102));
+        btnFeedback.setText("Give Feedback");
+        btnFeedback.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnFeedback.setBorderPainted(false);
+        btnFeedback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFeedbackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -234,11 +252,12 @@ public class ManageProfessorJPanel extends javax.swing.JPanel {
                             .addComponent(btnCreateProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(200, 200, 200)
                         .addComponent(jLabel1)))
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCreateProfile, btnDelete, btnView});
@@ -260,12 +279,14 @@ public class ManageProfessorJPanel extends javax.swing.JPanel {
                         .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(97, 97, 97)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
                         .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(40, 40, 40)
                 .addComponent(btnback)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCreateProfile, btnDelete, btnView});
@@ -408,10 +429,25 @@ public class ManageProfessorJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnsearchActionPerformed
 
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        // TODO add your handling code here:
+        
+        AdminViewProfessorJPanel courselist = new AdminViewProfessorJPanel(mainframe,selectedNUID);
+        mainframe.setRightComponent(courselist);
+    }//GEN-LAST:event_btnViewActionPerformed
+
+    private void btnFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFeedbackActionPerformed
+        // TODO add your handling code here:
+        
+        GiveProfessorFeedbackJPanel givefeedback = new GiveProfessorFeedbackJPanel(mainframe);
+        mainframe.setRightComponent(givefeedback);
+    }//GEN-LAST:event_btnFeedbackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateProfile;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnFeedback;
     private javax.swing.JButton btnUpdate1;
     private javax.swing.JButton btnView;
     private javax.swing.JButton btnback;

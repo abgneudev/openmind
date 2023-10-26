@@ -221,7 +221,7 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
 
     private void stubtnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stubtnBackActionPerformed
         // TODO add your handling code here:
-         LandingJPanel landingpanel = new LandingJPanel();
+         LandingJPanel landingpanel = new LandingJPanel(mainframe);
            mainframe.setRightComponent(landingpanel);
 
     }//GEN-LAST:event_stubtnBackActionPerformed

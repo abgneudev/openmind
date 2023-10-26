@@ -127,7 +127,7 @@ public class DonateJPanel extends javax.swing.JPanel {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
 
-        LandingJPanel landingpage = new LandingJPanel();
+        LandingJPanel landingpage = new LandingJPanel(mainframe);
         mainframe.setRightComponent(landingpage);
     }//GEN-LAST:event_btnBackActionPerformed
 

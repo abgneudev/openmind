@@ -215,7 +215,7 @@ public class AdminLoginJPanel extends javax.swing.JPanel {
     private void adminbtnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminbtnBackActionPerformed
           // TODO add your handling code here:
           
-           LandingJPanel landingpanel = new LandingJPanel();
+           LandingJPanel landingpanel = new LandingJPanel(mainframe);
            mainframe.setRightComponent(landingpanel);
         
         

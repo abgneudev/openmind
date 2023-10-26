@@ -5,6 +5,7 @@
 package AdminWorkArea;
 
 import AdminWorkArea.Students.AdminStudentUpdateJPanel;
+import AdminWorkArea.Students.AdminViewStudentJPanel;
 import AdminWorkArea.Students.StudentCreateProfileJPanel;
 import Database.DatabaseConnection;
 import com.mysql.jdbc.Connection;
@@ -258,7 +259,7 @@ public class ManageStudentJPanel extends javax.swing.JPanel {
                         .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(49, 49, 49)
@@ -410,6 +411,9 @@ public class ManageStudentJPanel extends javax.swing.JPanel {
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
+        
+        AdminViewStudentJPanel courselist = new AdminViewStudentJPanel(mainframe,selectedNUID);
+        mainframe.setRightComponent(courselist);
     }//GEN-LAST:event_btnViewActionPerformed
 
 

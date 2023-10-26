@@ -4,6 +4,7 @@
  */
 package AdminWorkArea.Students;
 
+import AdminWorkArea.ManageStudentJPanel;
 import javax.swing.JOptionPane;
 import ui.LandingJPanel;
 import ui.MainJFrame;
@@ -19,8 +20,11 @@ public class AdminViewStudentJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AdminViewStudentJPanel
      */
-    public AdminViewStudentJPanel() {
+    public AdminViewStudentJPanel(MainJFrame mainframe, String selectedNUID) {
         initComponents();
+        
+        this.mainframe = mainframe;
+        this.selectedNUID = selectedNUID;
     }
 
     /**
@@ -39,6 +43,8 @@ public class AdminViewStudentJPanel extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         btnTrans = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(0, 102, 102));
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -146,18 +152,18 @@ public class AdminViewStudentJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel1)
-                .addContainerGap(488, Short.MAX_VALUE))
+                .addContainerGap(516, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 6, Short.MAX_VALUE)))
+                    .addGap(0, 34, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
 
-        LandingJPanel landingpage = new LandingJPanel();
+        ManageStudentJPanel landingpage = new ManageStudentJPanel(mainframe);
         mainframe.setRightComponent(landingpage);
     }//GEN-LAST:event_btnBackActionPerformed
 

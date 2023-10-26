@@ -253,7 +253,7 @@ public class CreateProfileJPanel extends javax.swing.JPanel {
 
     private void stubtnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stubtnBack2ActionPerformed
         // TODO add your handling code here:
-        LandingJPanel landingpanel = new LandingJPanel();
+        LandingJPanel landingpanel = new LandingJPanel(mainframe);
            mainframe.setRightComponent(landingpanel);
 
         
